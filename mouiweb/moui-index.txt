@@ -1,0 +1,24 @@
+Mobile Outdoor User Interface
+=============================
+
+This will be the home of *MOUI*, the Mobile Outdoor User Interface.
+
+The http://sourceforge.net/apps/mediawiki/moui/index.php?title=Main_Page[wiki is here].
+
+There is the sf.net http://sourceforge.net/projects/moui/[summary page].
+
+In-Vehicle Infotainment systems in cars and airplanes are made to
+distract passengers from the duration of travel. 
+
+In boating, the travel is the entertainment.
+
+Consequently, systems for boating should aim to improve the quality
+of travel, rather than keeping the passengers quiet until it's over.
+
+== Plans ==
+
+Currently this work is in the planning stage. Some things depend on outside
+developments, so plans can change.
+
+- The UI will be developed on top of MeeGo. Failing that, on Fedora.
+- The initial versions will be derived from the MeeGo Tablet UX.

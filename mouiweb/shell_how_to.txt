@@ -1,0 +1,59 @@
+    
+For uploads to the web site:
+
+scp thefooter.php berndhs,moui@web.sourceforge.net:htdocs/
+
+for login with a new shell:
+
+ssh -t berndhs,moui@shell.sourceforge.net create
+
+
+------------------------------
+
+Interactive Shell Service ¶
+
+Project developers can access an Interactive Shell if they have been granted shell access for the project. The Interactive Shell provides a command line interface that can be used to manage the following:
+
+    * Project web content
+    * Developer web content
+    * Project uploads
+    * CVS repositories 
+
+Features ¶
+
+The Interactive Shell supports the following features:
+
+    * SSH shell access to project content; access to data for other users and projects not provided
+    * Comprehensive set to command line tools
+    * 4 hour shell life - shells are automatically terminated after 4 hours.
+    * Password or SSH keys authentication
+    * CVS repository administration 
+
+The Interactive Shell does not support the following features:
+
+    * Cron service
+    * File management service 
+
+Management ¶
+
+Project members must be granted shell access by a project administrator. Project administrators can grant shell access to project members from the project site:
+
+    * https://sourceforge.net/projects/PROJECT 
+
+via the:
+
+    * Admin > Members interface 
+
+Access ¶
+
+Interactive Shell sessions persist for 4 hours once created. Authorized developers that have been granted shell access for a project can create/connect to an Interactive Shell with:
+
+ssh -t USER,PROJECT@shell.sourceforge.net create
+
+NOTE: Be sure to substitute your SourceForge.net login username for USER, and the respective SourceForge.net project UNIX name for PROJECT.
+
+If you do not have an active Interactive Shell session a help page can be viewed with:
+
+ssh USER@shell.sourceforge.net
+
+
