@@ -2,7 +2,8 @@
 INSTALLOPTS= --verbose --compare
 
 WEBHOME=/var/www/html/
-SUBDIRS  = books tpl berndhs.com
+SUBDIRS  = tpl
+#SUBDIRS = books tpl
 LOCALSRC = *.php *.jpg *.png *.inc *.css Makefile readme.txt *.pdf *.js
 #    index.php defs.php navset.php nav.php locallist.inc remotelist.inc \
 #	weather.php nada.png nada.jpg box.png smiley-3.png \
