@@ -1,8 +1,9 @@
+#!/bin/make
 
 INSTALLOPTS= --verbose --compare
 
-WEBHOME=/var/www/html/
-SUBDIRS  = samoaweb berndhs.com mouiweb
+WEBHOME=/var/www/html/berndhs.com
+SUBDIRS  = commute
 LOCALSRC = *.php *.jpg *.png *.inc *.css Makefile README.md *.pdf *.js
 #    index.php defs.php navset.php nav.php locallist.inc remotelist.inc \
 #	weather.php nada.png nada.jpg box.png smiley-3.png \
@@ -16,6 +17,7 @@ help:
 	echo "or " ; ls ${LOCALSRC}
 	
 all:
+	install ${INSTALLOPTS} ${LOCALSRC} ${WEBHOME}
 	for d in $(SUBDIRS) ; do \
 	   echo ---------------Directory '[ ' $$d/ ' ]'; \
 	   cd $$d; make WEBHOME=${WEBHOME}/$$d all; cd ..; \

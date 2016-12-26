@@ -9,13 +9,6 @@
 <?php echo "Welcome to Bernd's Videos" ?>
 </h1>
 <br>
-Commute inspires me to take the bus:<br>
-<video width="640" height="360" controls>
-  <source src="videos/commute_20140110_640.mp4" type="video/mp4">
-  <source src="videos/commute_20140110_640.ogg" type="video/ogg">
-Your browser does not support the video tag.
-</video> 
-<br>
 Loriot's Advent:<br>
 <video width="640" height="360" controls>
   <source src="videos/Loriot-advent.mp4" type="video/mp4">
