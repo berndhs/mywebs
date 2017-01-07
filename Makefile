@@ -13,7 +13,7 @@ help:
 all:
 	for d in $(SUBDIRS) ; do \
 	   echo ---------------Directory '[ ' $$d/ ' ]'; \
-	   make -C $$D WEBHOME=${WEBHOME}/$$d all; cd ..; \
+	   make -C $$D WEBHOME=${WEBHOME} all; cd ..; \
 	   echo ---------------finished ' [ ' $$d/ ' ]'; \
 	   done
 
@@ -23,6 +23,6 @@ install:
 	for d in $(SUBDIRS) ; do \
 	   echo ---------------Directory '[ ' $$d/ ' ]'; \
 	   if [ ! -e ${WEBHOME}/$$d ] ; then mkdir ${WEBHOME}/$$d ; fi ; \
-	   make -C $$d WEBHOME=${WEBHOME}/$$d install; cd ..; \
+	   make -C $$d WEBHOME=${WEBHOME} install; cd ..; \
 	   echo ---------------finished ' [ ' $$d/ ' ]'; \
 	   done
