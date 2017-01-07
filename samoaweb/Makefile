@@ -3,8 +3,8 @@ INSTALLOPTS= --verbose --compare
 
 WEBHOME=/var/www/html/
 SUBDIRS  = tpl
-#SUBDIRS = books tpl
-LOCALSRC = *.php *.jpg *.png *.inc *.css Makefile readme.txt *.pdf *.js
+#SUBDIRS = books tpl mouiweb berndhs.com
+LOCALSRC = *.php *.jpg *.png *.inc *.css Makefile *.pdf *.js
 #    index.php defs.php navset.php nav.php locallist.inc remotelist.inc \
 #	weather.php nada.png nada.jpg box.png smiley-3.png \
 	# paper.jpg paper.png bernd-styles.css crumple.jpg \
@@ -13,32 +13,25 @@ LOCALSRC = *.php *.jpg *.png *.inc *.css Makefile readme.txt *.pdf *.js
 	# sethostvar.php
 	
 help:
+	echo "installing to ${WEBHOME}"
 	echo "make installsrc for ${LOCALSRC}"
 	echo "make installindex for index.php"
 	echo "make install for everything"
 	
 installindex:
+	echo "installing to ${WEBHOME}"
 	install ${INSTALLOPTS} index.php ${WEBHOME}
 	
 installsrc:
+	echo "installing to ${WEBHOME}"
 	install ${INSTALLOPTS} ${LOCALSRC} ${WEBHOME}
-
-all:
+	   
+install:
+	echo "installing to ${WEBHOME}"
+	install $(INSTALLOPTS) $(LOCALSRC) $(WEBHOME)
 	for d in $(SUBDIRS) ; do \
 	   echo ---------------Directory '[ ' $$d/ ' ]'; \
-	   cd $$d; make WEBHOME=${WEBHOME}/$$d all; cd ..; \
-	   echo ---------------finished ' [ ' $$d/ ' ]'; \
-	   done
-
-localinst:
-	bash ./make_sethostvar
-	install  ${INSTALLOPTS} ${LOCALSRC} ${WEBHOME}
-
-install: 
-	@for d in $(SUBDIRS) ; do \
-	   echo ---------------Directory '[ ' $$d/ ' ]'; \
 	   if [ ! -e ${WEBHOME}/$$d ] ; then mkdir ${WEBHOME}/$$d ; fi ; \
-	   cd $$d; make WEBHOME=${WEBHOME}/$$d install; cd ..; \
+	   make -C $$d WEBHOME=${WEBHOME}/$$d install; cd ..; \
 	   echo ---------------finished ' [ ' $$d/ ' ]'; \
 	   done
-	make localinst

@@ -3,30 +3,26 @@ INSTALLOPTS= --verbose --compare
 
 WEBHOME=/var/www/html/
 SUBDIRS  = samoaweb
-LOCALSRC = *.php *.jpg *.png *.inc *.css Makefile README.md *.pdf *.js
-#    index.php defs.php navset.php nav.php locallist.inc remotelist.inc \
-#	weather.php nada.png nada.jpg box.png smiley-3.png \
-	# paper.jpg paper.png bernd-styles.css crumple.jpg \
-	# favicon.ico mp.jpg mp.png homelink.php homelinkvar.php \
-	# homelink.html webcam.php webcamjava.php \
-	# sethostvar.php
+LOCALSRC = README.md Makefile
 	
 help:
+	echo "installing to ${WEBHOME}"
 	echo "files are " ${LOCALSRC}
 	echo "or " ; ls ${LOCALSRC}
 	
 all:
 	for d in $(SUBDIRS) ; do \
 	   echo ---------------Directory '[ ' $$d/ ' ]'; \
-	   cd $$d; make WEBHOME=${WEBHOME}/$$d all; cd ..; \
+	   make -C $$D WEBHOME=${WEBHOME}/$$d all; cd ..; \
 	   echo ---------------finished ' [ ' $$d/ ' ]'; \
 	   done
 
 install:
-	install ${INSTALLOPTS} ${LOCALSRC} ${WEBHOME}
-	@for d in $(SUBDIRS) ; do \
+	echo "installing to ${WEBHOME}"
+	install $(INSTALLOPTS) $(LOCALSRC) $(WEBHOME)
+	for d in $(SUBDIRS) ; do \
 	   echo ---------------Directory '[ ' $$d/ ' ]'; \
 	   if [ ! -e ${WEBHOME}/$$d ] ; then mkdir ${WEBHOME}/$$d ; fi ; \
-	   cd $$d; make WEBHOME=${WEBHOME}/$$d install; cd ..; \
+	   make -C $$d WEBHOME=${WEBHOME}/$$d install; cd ..; \
 	   echo ---------------finished ' [ ' $$d/ ' ]'; \
 	   done

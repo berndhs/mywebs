@@ -1,1 +1,1 @@
-<?php $THIS_HOST_NAME = " psv "; ?>
+<?php $THIS_HOST_NAME = " curacao.berndnet "; ?>
