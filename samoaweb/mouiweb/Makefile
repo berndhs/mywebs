@@ -27,12 +27,6 @@ installsrc:
 	install ${INSTALLOPTS} ${LOCALSRC} ${WEBHOME}
 
 
-FILES = footer.html \
-	index.php \
-	moui-index.html 
-
-WEBTARGET = berndhs,moui@web.sourceforge.net:htdocs/
-
 all:
 	echo "Use:"
 	echo "    make upload    to push to sf.net"
