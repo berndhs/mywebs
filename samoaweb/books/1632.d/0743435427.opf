@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE package PUBLIC "+//ISBN 0-9673008-1-9//DTD OEB 1.0.1 Package//EN" "http://openebook.org/dtds/oeb-1.0.1/oebpkg101.dtd">
+<package xmlns="http://openebook.org/namespaces/oeb-package/1.0/" unique-identifier="DOI-0743435427">
+  <metadata>
+    <dc-metadata xmlns:dc="http://purl.org/dc/elements/1.0/" xmlns:oebpackage="http://openebook.org/namespaces/oeb-package/1.0/">
+      <dc:Title>1633</dc:Title>
+      <dc:Type>Novel</dc:Type>
+      <dc:Identifier id="ISBN10-0743435427" scheme="ISBN10-Hardcover">0-7434-3542-7</dc:Identifier>
+      <dc:Identifier id="ISBN13-9780743435420" scheme="ISBN13-Hardcover">978-0-7434-3542-0</dc:Identifier>
+      <dc:Identifier id="ISBN10-0743471555" scheme="ISBN10-Paperback">0-7434-7155-5</dc:Identifier>
+      <dc:Identifier id="ISBN13-9780743471558" scheme="ISBN13-Paperback">978-0-7434-7155-8</dc:Identifier>
+      <dc:Identifier id="DOI-0743435427" scheme="DOI">10.1125/Baen.0743435427</dc:Identifier>
+      <dc:Publisher>Baen Books</dc:Publisher>
+      <dc:Creator role="aut" file-as="Weber, David">David Weber</dc:Creator>
+      <dc:Creator role="aut" file-as="Flint, Eric">Eric Flint</dc:Creator>
+      <dc:Contributor role="art" file-as="Blair, Dru">Dru Blair</dc:Contributor>
+      <dc:Subject>Science Fiction</dc:Subject>
+      <dc:Rights>2002 by David Weber &amp; Eric Flint</dc:Rights>
+      <dc:Date>2002-08-01</dc:Date>
+      <dc:Language>en-us</dc:Language>
+    </dc-metadata>
+    <x-metadata>
+    </x-metadata>
+  </metadata>
+  <manifest>
+    <item id="content" href="0743435427__p_.htm" media-type="text/x-oeb1-document" />
+    <item id="toc" href="0743435427_top.htm" media-type="text/x-oeb1-document" />
+    <item id="coverstandard" href="0743435427_Cover.jpg" media-type="image/jpeg" />
+    <item id="thumbstandard" href="0743435427_Library.jpg" media-type="image/jpeg" />
+    <item id="titlestandard" href="0743435427_Title.jpg" media-type="image/jpeg" />
+    <item id="cover" href="0743435427_PCCover.jpg" media-type="image/jpeg" />
+    <item id="thumb" href="0743435427_PCLibrary.jpg" media-type="image/jpeg" />
+  </manifest>
+  <spine>
+    <itemref idref="content" />
+  </spine>
+  <guide>
+    <reference type="toc" title="Table of Contents" href="0743435427_top.htm" />
+    <reference type="copyright-page" title="Copyright" href="0743435427__p_.htm" />
+    <reference type="title-page" title="Title Page" href="0743435427__p_.htm" />
+    <reference type="other.ms-firstpage" title="first page" href="0743435427__p_.htm#Chap_1" />
+    <reference type="other.ms-coverimage-standard" title="cover image standard" href="0743435427_Cover.jpg" />
+    <reference type="other.ms-thumbimage-standard" title="thumb image standard" href="0743435427_Library.jpg" />
+    <reference type="other.ms-coverimage" title="PPC cover image" href="0743435427_PCCover.jpg" />
+    <reference type="other.ms-thumbimage" title="PPC thumb image" href="0743435427_PCLibrary.jpg" />
+  </guide>
+</package>

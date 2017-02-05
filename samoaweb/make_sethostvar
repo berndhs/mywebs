@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo  '<?php $THIS_HOST_NAME = "' `hostname` '"; ?>' > sethostvar.php
+
