@@ -1,35 +1,29 @@
-<?php 
 
-function is_local () {
-  $client_address = $_SERVER["REMOTE_ADDR"];
-  $pos192 = strpos ($client_address,"192.168.1.");
-  $pos127 = strpos ($client_address,"127.0.0.1");
-  $pos1 = strpos ($client_address,"::1");
-  $pos_fec0 = strpos ($client_address,"fec0::");
-  $pos_fe80 = strpos ($client_address,"fe80::");
-  return (($pos192 === 0) || ($pos127 === 0) || ($pos1 === 0)
-          || ($pos_fec0 === 0) || ($pos_fe80 === 0));
-}
-
-
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional //EN">
+<!DOCTYPE html>
 
 <html>
 <head>
-<title><?php include ("sethostvar.php"); ?> Server</title>
+<?php include ("sethostvar.php"); ?>
+<title><?php $THIS_HOST_NAME ?> Server</title>
 
 <link rel="stylesheet" type="text/css" href="bernd-styles.css" >
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" >
+<script type="text/javascript">
+<!--
+if (screen.width <= 699) {
+document.location = "berndhs.com/m";
+}
+//-->
+</script>
 
 </head>
 
 <body class="critter">
 <div align="center">
 <h1>
-<?php echo "Welcome to $THIS_HOST_NAME" ?>
+<?php echo "Welcome to $_SERVER["HOST_NAME"] or $THIS_HOST_NAME" ?>
 </h1>
-<h4>(on <?php $_SERVER ?>)</h4>
+<h4>(on <?php $_SERVER["SERVER_ADDR"] or $_SERVER["REMOTE_ADDR"] ?>)</h4>
 <a href="https://berndhs.wordpress.com">my worpress site</a>
 <br>
 <a href="https://github.com/berndhs">me at github</a>
