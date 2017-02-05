@@ -1,1 +1,1 @@
-<?php $THIS_HOST_NAME = " curacao.berndnet "; ?>
+<?php $THIS_HOST_NAME = " berndhs.com "; ?>

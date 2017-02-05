@@ -28,6 +28,8 @@ installsrc:
 	   
 install:
 	echo "installing to ${WEBHOME}"
+	make installindex
+	make installsrc
 	install $(INSTALLOPTS) $(LOCALSRC) $(WEBHOME)
 	for d in $(SUBDIRS) ; do \
 	   echo ---------------Directory '[ ' $$d/ ' ]'; \
