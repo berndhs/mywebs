@@ -2,11 +2,10 @@
 
 <html>
 <head>
-<title><?php include ("sethostvar.php"); ?> Server</title>
+<title><?php echo $_SERVER["HOST_NAME"]; ?> Server</title>
 
 <link rel="stylesheet" type="text/css" href="bernd-styles.css" >
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" >
-<?php $_SERVER = $_ENV; ?>
 
 </head>
 

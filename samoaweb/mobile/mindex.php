@@ -10,7 +10,7 @@
 
 </head>
 
-<body class="critter">
+<body>
 <?php include_once("google-measure.php") ?>
 <div align="center">
 <h1>

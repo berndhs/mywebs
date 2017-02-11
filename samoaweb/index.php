@@ -3,7 +3,7 @@
 
 <html>
 <head>
-<title><?php include ("sethostvar.php"); ?> Server</title>
+<title><?php echo $_SERVER["HOST_NAME"]; ?> Server</title>
 </head>
 
 <body>
