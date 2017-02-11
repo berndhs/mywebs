@@ -3,12 +3,13 @@
 
 <html>
 <head>
+<title><?php include ("sethostvar.php"); ?> Server</title>
 </head>
 
 <body>
 
- <script>
- function daFunc(whereto) {
+<script>
+ function daRedirect(whereto) {
    var uag = navigator.userAgent;
    var yorn = uag.includes("ndroid");
    var loco = whereto + "/";
@@ -18,14 +19,19 @@
    document.location.assign(path);
    return path;
  }
- </script>
+</script>
+
+<dev align="center">
+<h1>
+</dev>
 
 
 <h1>
 <div align="left">
- <button onclick="daFunc('desk')">Go To Desk</button>
- <br>
- <button onclick="daFunc('mobile')">Go To Mobile</button>
+ <button onclick="daRedirect('desk')">Go To Desk</button>
+<br>
+<br>
+ <button onclick="daRedirect('mobile')">Go To Mobile</button>
  </div>
  <br>
  <p id="showhere">

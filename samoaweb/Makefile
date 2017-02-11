@@ -2,7 +2,7 @@
 INSTALLOPTS= --verbose --compare
 
 WEBHOME=/var/www/html/
-SUBDIRS  = tpl
+SUBDIRS  = tpl desk mobile
 #SUBDIRS = books tpl mouiweb berndhs.com
 LOCALSRC = *.php *.jpg *.png *.inc *.css Makefile *.pdf *.js
 #    index.php defs.php navset.php nav.php locallist.inc remotelist.inc \
@@ -34,6 +34,6 @@ install:
 	for d in $(SUBDIRS) ; do \
 	   echo ---------------Directory '[ ' $$d/ ' ]'; \
 	   if [ ! -e ${WEBHOME}/$$d ] ; then mkdir ${WEBHOME}/$$d ; fi ; \
-	   make -C $$d WEBHOME=${WEBHOME}/$$d install; cd ..; \
+	   make -C $$d WEBHOME=${WEBHOME}/$$d install; \
 	   echo ---------------finished ' [ ' $$d/ ' ]'; \
 	   done
