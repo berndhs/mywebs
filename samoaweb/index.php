@@ -31,7 +31,7 @@ document.body.appendChild(txt);
    var loco = whereto + "/";
    var pro = document.location.protocol + "//";
    var host = document.location.hostname;
-   var filename = (loco == "desk" ? "dindex.php" : "mindex.php");
+   var filename = "subindex.php";
    var path = pro + host + "/" + loco + filename;
    document.location.assign(path);
    return path;
