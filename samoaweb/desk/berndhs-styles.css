@@ -1,0 +1,189 @@
+body.weather {
+   background-attachment:fixed;
+   z-index: -1;
+}
+
+body.plain {
+   background-color: #BCCDD1;
+}
+
+body.plainnews {
+   background-color: #93A7A0;
+}
+
+body.critter {
+   background-image:   url("dragonfly1024high.jpg");
+   background-attachment:fixed;
+   z-index: -1;
+}
+
+
+h1.pagetitle { 
+   text-align:center;
+   color:#00008b;
+   font-family: "papyrus" , verdana, arial, sans-serif ;
+   font-weight:900;
+   max-width:550px ;
+   background-image: url("crumple.png");
+   border-style:groove;
+   border-width:4px;
+   opacity:0.85;
+   z-index: 1;
+  }
+
+span.lnk {
+   background-color:silver; font-weight:normal;
+   }
+
+span.lnkb {color:yellow;background-color:black; font-weight:bold}
+
+span.hdr {
+   font-size:140% ; 
+   color:#00008B;
+   background-image: url("paper.jpg");
+   border-style:none;
+   padding:4px;
+   margin-top:8px;
+   opacity:0.65;
+   z-index: 0;
+}
+
+.m20 {
+   margin-right:2em ;
+}
+
+.hdr {
+   font-size:140% ; 
+   width:auto;
+   color:#00008B;
+   background-image: url("paper.jpg");
+   text-align:center;
+   border-style:none;
+   padding:4px;
+   opacity:0.65;
+   z-index: 0;
+}
+
+.floatbox {
+  width:inherit;
+  min-width:30%;
+   
+   
+   margin-top: 4px;
+   margin-bottom: 4px;
+   margin-left: 4px;
+   margin-right: 4px;
+     
+   
+   
+   background-color:silver;
+   border-width:3px;
+   border-style:outset;
+   padding-right:6px;
+   opacity:0.80;
+   
+   
+
+   min-height: 100px;
+   float: left;
+   position: relative;
+   left:auto;
+   top:auto;
+   right: auto;
+   text-align: left;
+   text-decoration: none;
+   text-transform: none;
+   vertical-align: baseline;
+	visibility: visible;
+	white-space: normal;
+	word-spacing: normal;
+	z-index: 0;
+
+}
+
+.mypage {
+}
+
+.inset {
+   background-color:#EBEBA5;
+   border-style: double;
+   border-width: medium;
+}
+
+table.navtop {
+   background-color:silver ;
+   border-style:groove;
+   border-width:4px ;
+   text-align:center;
+}
+
+table.navbottom {
+   background-color:silver ;
+   border-style:groove;
+   border-width:4px ;
+   min-width:150px;
+}
+
+.tooltip {
+   position: absolute;
+   display: none;
+   border-width: 1px;
+   border-style: solid;
+   border-color: #000000;
+   background-color: red;
+   padding: 4px;
+   text-align:left;
+   opacity:1.00;
+   z-index: 10;
+}
+
+.seeback {
+   background-color:silver;
+   border-width:3px;
+   border-style:outset;
+   padding-right:6px;
+   opacity:0.80;
+}
+
+a:hover {
+  border-style: none;
+  font-style: oblique;
+  font-size: 105%;
+}
+a:hover img {
+  border-right-style: ridge;
+  border-left-style: ridge;
+  border-top-style: none;
+  border-bottom-style: none;
+  border-width: thick;
+  border-color: red;
+  font-style: oblique;
+  font-size: 100%;
+}
+
+.webcamframe {
+   border-style:inset;
+   border-width:5px;
+   border-color:#1F1F1F;
+   background-color:#070727;
+   width:340px;
+   height:260px;
+}
+.clockframe {
+   border-style:inset;
+   border-width:5px;
+   border-color:#1F1F1F;
+   background-color:#070727;
+   display:none;
+   width:600px;
+   height:600px;
+}
+
+.nodots {
+  list-style-type: none;
+}
+
+#footer {
+  clear:both ;
+}
+

@@ -1,1 +1,1 @@
-<?php $THIS_HOST_NAME = " berndhs.com "; ?>
+<?php $THIS_HOST_NAME = $_SERVER["SERVER_NAME"]; ?>
