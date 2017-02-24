@@ -121,6 +121,10 @@ The Index
 <a href="php_manual/index.html">php manual</a>
 <br>
 <a href="phpboard/index.php">ChatBoard</a>
+<br>
+<a href="http://berndhs.com">Website</a>
+<br>
+<a href="satserv.php">Satellites</a>
 </p>
 
 </body>
