@@ -6,7 +6,14 @@
 
 <link rel="stylesheet" type="text/css" href="berndhs-styles.css" >
 
-<title><?php echo $_SERVER["HOST_NAME"]; ?> Server</title>
+<title>
+<?php echo $_SERVER["HOST_NAME"]; 
+if ($_SERVER["HOST_NAME"] == "localhost") {
+  $local = "yes";
+} else {
+  $local = "no";
+}
+?> Server</title>
 </head>
 
 <body onloaded="alert('loaded')">
@@ -20,11 +27,10 @@ var tallness;
 if (isMobile) {
   tallness = "-tall";
 } else {
+  alert("not mobile"):
   tallness  "-short";
 }
 document.getElementsByName("popbody").[0].setAttribute("class","dropdown-content" + tallness);
-alerd ("Hi");
-alert (tallness);
 }
 </script>
 <script>
@@ -118,13 +124,13 @@ The Index
 <p align="left">
 <a href="./adminer.php">database adminer</a>
 <br>
-<a href="php_manual/index.html">php manual</a>
+<a href="php_manual/php-chunked-xhtml/index.html">php manual</a>
 <br>
 <a href="phpboard/index.php">ChatBoard</a>
 <br>
 <a href="http://berndhs.com">Website</a>
 <br>
-<a href="satserv.php">Satellites</a>
+<a href=<?php echo "\"satserv-sqli.php\""; ?> >Satellites</a>
 </p>
 
 </body>

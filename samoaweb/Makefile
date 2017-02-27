@@ -28,9 +28,9 @@ installsrc:
 	   
 install:
 	echo "installing to ${WEBHOME}"
-	make installindex
-	make installsrc
-	install $(INSTALLOPTS) $(LOCALSRC) $(WEBHOME)
+	-make installindex
+	-make installsrc
+	-install $(INSTALLOPTS) $(LOCALSRC) $(WEBHOME)
 	for d in $(SUBDIRS) ; do \
 	   echo ---------------Directory '[ ' $$d/ ' ]'; \
 	   if [ ! -e ${WEBHOME}/$$d ] ; then mkdir ${WEBHOME}/$$d ; fi ; \

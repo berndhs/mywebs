@@ -57,13 +57,12 @@ function button_code ($txt, $link)
    return $but;
 }
 
-function item_button ($ndx, $filename)
+function item_button ($ndx, $filename,$stamp)
 {
-  $lnk = "satservContent.php";
-  $lnk .= "?fn=item";
-  $lnk .= "&k1=" . $ndx;
-  $lnk .= "&k2=" . $filename;
-  return button_code (date("c",$ndx) . " " . $filename, $lnk);
+  $lnk = "singlepic.php";
+  $lnk .= "?t=" . $ndx;
+  $lnk .= "&pic=" . $filename;
+  return button_code (date("c",$ndx) . " " . $filename . " stored " . $stamp, $lnk);
 }
 
 function give_index($db_con, $imin, $imax)
@@ -75,7 +74,7 @@ function give_index($db_con, $imin, $imax)
     $cntlpage = "satservControl.php";
     echo button_code("Foo",$cntlpage) . " to " . $cntlpage;
     echo "<br>";
-    $query = "select ident, picname, remark from `satpics` where";
+    $query = "select ident, picname, stamp from `satpics` where";
     
     if ($imin == "") {
       $imin = time() - 3 * 24 * 60 * 60;
@@ -84,21 +83,22 @@ function give_index($db_con, $imin, $imax)
     if ($imax == "") {
        $imax = time() + 3 * 60* 60;
     }
-    $query .= " and ident <= " . $imax;
+    $query .= " and ident <= " . $imax . " order by ident DESC limit 10;";
     $result = $db_con->query ($query);
     echo " query is " . $query . "<br>";   
     $nrows = $result->num_rows;
     echo "there are rows, $nrows <br>";
     if ($nrows > 0) {
       $r = 0;
-      $fields = array("ident","picname","remark");
+      $fields = array("ident","picname","stamp");
       while ($r<$nrows) {
         $row_array = $result->fetch_assoc();
         // echo "record " . $r . "\r\n";
         
         $ident = intval($row_array["ident"]);
         $picname = $row_array["picname"];
-        echo $ident . " " . item_button($ident,$picname) . "<br>\r\n";
+        $stamp = $row_array["stamp"];
+        echo $ident . " " . item_button($ident,$picname,$stamp) . "<br>\r\n";
         foreach ($fields as $f) {
           $rawval = trim($row_array[$f]);
           
@@ -114,40 +114,50 @@ function give_index($db_con, $imin, $imax)
     }
 }
 
-function take_content ()
+function take_content ($con,$tmpfile)
 {
-  $fl = fopen ("/home/bernd/public_html/daily/WCIR.JPG","r");
-  $data = "";
-  while (!feof($fl)) {
-    $data .= fread($fl,8192);
-    DelibDebug::debug("read 1 piece ");
-  }
-  fclose($fl);
-  return $data;
+  
+  $now = time() - 6*60; // 3 secs from now
+  $data = give_image ($con,$now);
+  $count = strlen($data);
+  echo "==== count is " . $count . "<br>";
+  $dest = "/var/www/html/satpic.jpg";
+  system("rm " . $dest);
+  $fd = fopen($dest,"w");
+  fwrite($fd,$data);
+  fflush($fd);
+  system("sync;sync");
+  fclose($fd);
+  echo "\n\nwrote ".$dest . " bytes " . strlen($data);
+  echo " " . filesize($dest);
+  echo "\n\r<br>";
+  return $dest;
 }
 
-function give_image($db_con, $ident, $picname)
+function give_image($db_con, $ident)
 {
-  $query = "select `image`,`remark` from `satpics` where "
-       . "`ident`='"
+  echo "db_con is ";
+  var_dump($db_con);
+  $query = "select image,picname, remark from satpics where "
+       . "ident < '"
     . $ident
-    . "' and `picname`='"
-    . $picname
-    . "'";
+    . "' order by ident desc limit 1;";
     $res = $db_con->query ($query);
   $nrows = $res->num_rows;
-  
+  echo "query " . $query . "<br>\n\r";
+  echo "result is " ;
+  var_dump($res);
   if ($nrows > 0) {
-    $row_array = $res->fetch_array();
+    $row_array = $res->fetch_assoc();
     $len = count($row_array[0]);
+    
 //    echo "SATVIEW-ITEM\r\n" ;
 //    echo "LEN ". $len . "\r\n";
     //var_dump($row_array);
 //    echo bin2hex($row_array[0]);
-     return ( $row_array[0]);
+     return ( $row_array["image"]);
   } else {
-  
-      header ("HTTP/1.0 404 No Data\r\n",false,204);
+      echo "zero rows<br>";
     
   }
 }

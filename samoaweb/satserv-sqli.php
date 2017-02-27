@@ -30,7 +30,7 @@
   <style>
    .control {
       float:left;
-      width:9em;
+      width:30px;
       height:100%;
     }
     .content {
@@ -45,15 +45,36 @@
   float: left;
 }
 </style>
-<?php include_once ("satservContent.php"); ?>
 </head>
 <body>
+<hr>
+<img src="wcir.jpg" width="200px" style="border:3px;border-style:dashed;border-color:#ff0000;" >
 
+  <?php
+   include_once("satserv-functions.php");
+   echo "<dev>\n";
+   $con = login();
+   $now = time();
+   $hoursago = time() - 10*60 * 60;
+   echo "<hr>\n";
+   echo give_index($con,$hoursago,$now);
+   echo "\n<hr>\n";
+   $tmp = "satpic" ;//tempnam(".","tmp");
+   $file = take_content($con,$tmp);
+   echo "pic in file " . $file ."<br>";
+  echo '<img width="300px" style="border:3px; border-style:dotted;border-color:#ff00ff;" ';
 
-<button style="onImage" onclick="alert('do Fwd');">Next</button>   
-
-<br>
-<button style="onImage" onclick="alert('do Back');">Back</button>
-  <img src='data:image/jpeg;base64,'  <?php $picdata = take_content(); DelibDebug::debugNotice($picdata); imagejpeg($picdata);?> >
+   echo "src=\"" . $file . "\"";
+   echo ">\n\r";
+   echo "<br>file size " . filesize($file);
+  ?>
+   
+  <br>
+  <br>
+  <p> a paragraph </p>
+  <hr>
+  <p align="left">
+  this is after the image
+  </p>
  </body>
 </html>

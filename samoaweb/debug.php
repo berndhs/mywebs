@@ -9,11 +9,13 @@ private static $dbg = null;
 
 public static function open($filename) 
 {
+return;
   $dbg = fopen ($filename,"w");
 }
 
 public static function checkOpen () 
 {
+return;
   if ($dbg === null) {
     self::open("~/debug.log");
   }
@@ -25,6 +27,7 @@ public static function checkOpen ()
 
 public static function debug($msg)
 {
+return;
   self::checkOpen();
   $stamp = date("c",time());
   fwrite($dbg,$stamp . $msg);
@@ -33,6 +36,7 @@ public static function debug($msg)
 
 public static function debugNotice($bigData)
 {
+return;
   self::checkOpen();
   self::debug("length ".strlen($bigData));
   fflush($dbg);
@@ -40,6 +44,8 @@ public static function debugNotice($bigData)
 
 public static function closeDebug() 
 {
+return;
+echo "closing\r\n<br>";
   fclose($dbg);
 }
 
