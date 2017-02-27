@@ -74,16 +74,19 @@ function whole_page()
   $result->data_seek(0);
   $allofit = $result->fetch_assoc();
   $imgdata = $allofit["image"];
-  $destfile = tempnam("/tmp","img");
+  $destfile = tempnam(sys_get_temp_dir(),"img");
+  $funky = "/tmp/systemd-private-bfc5a151edce4f1b93f306bb01befc6a-httpd.service-yKDJAh/";
   $daPath =  $destfile;
-  $fd = fopen($daPath,"w");
+  $fd = fopen($daPath,"c");
+  echo "opened for c "; var_dump($fd);
   fwrite($fd,$imgdata);
   fflush($fd);
-  //fclose($fd);
+  var_dump($fd);
+  fclose($fd);
   system("sync;sync");
   echo "you are here " . getcwd();
   echo "<br>wrote tile " . $daPath . " size " . filesize($daPath) . "<br>\n\r";
-  return $fd ; // $daPath;
+  return  $funky . $daPath;
 }
 ?>
 <!DOCTYPE html>
@@ -95,7 +98,12 @@ function whole_page()
 <h1>Image <?php echo $_REQUEST["pic"]; ?></h1>
 <?php $imgFD = whole_page() ?>
 <br>
-<img width="250" height="250" src=<?php echo '"data:image/jpeg;' . imagejpeg($imgFD) . '"' ?> >
+<p>
+file is here 
+<?php echo $imgFD; ?>
+<br>
+</p>
+<img width="250" height="250" src=<?php echo '"' . $imgFD . '"' ?> >
 </body>
 </html>
 

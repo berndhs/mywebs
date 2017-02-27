@@ -52,6 +52,15 @@
 
   <?php
    include_once("satserv-functions.php");
+   $p = fopen("space/cnt.txt","r");
+   $data = fread($p,2048);
+   //fseek($p,0);
+   fclose($p);
+   $p = fopen("space/cnt.txt","a");
+   fwrite($p,"12345");
+var_dump($p);
+   fclose($p);
+   echo "<p>number is " . $data . "||\n<br></p>";
    echo "<dev>\n";
    $con = login();
    $now = time();
